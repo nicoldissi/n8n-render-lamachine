@@ -43,7 +43,3 @@ services:
       - key: N8N_ENCRYPTION_KEY
         generateValue: true
 
-databases:
-  - name: n8nDB
-    region: frankfurt # optional (defaults to oregon)
-    plan: free
