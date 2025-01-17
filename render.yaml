@@ -8,8 +8,6 @@ services:
     numInstances: 1
     healthCheckPath: /healthz
     envVars:
-      - key: NODE_FUNCTION_ALLOW_EXTERNAL
-        value: *
       - key: DB_POSTGRESDB_DATABASE
         value: postgres
       - key: DB_POSTGRESDB_HOST
