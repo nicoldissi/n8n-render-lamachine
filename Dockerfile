@@ -28,4 +28,6 @@ RUN apt-get update && apt-get install -y imagemagick && \
 # Dans tous les cas il est recommandé de vérifier si il y a une installation spécifique
 # sur la documentation ou la page du projet
 
-USER node # Retour à l'utilisateur node pour n8n
+USER node 
+
+# Retour à l'utilisateur node pour n8n
