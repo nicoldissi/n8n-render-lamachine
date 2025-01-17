@@ -7,3 +7,34 @@ services:
     branch: main # optional (defaults to master)
     numInstances: 1
     healthCheckPath: /healthz
+    envVars:
+      - key: NODE_FUNCTION_ALLOW_EXTERNAL
+        value: *
+      - key: DB_POSTGRESDB_DATABASE
+        value: postgres
+      - key: DB_POSTGRESDB_HOST
+        value: aws-0-eu-west-3.pooler.supabase.com
+      - key: DB_POSTGRESDB_PASSWORD
+        value: pzyTRPGMp5hXwo5G
+      - key: DB_POSTGRESDB_PORT
+        value: 6543
+      - key: DB_POSTGRESDB_USER
+        value: postgres.njjdpnyokzzytofzjkjy
+      - key: DB_TYPE
+        value: postgresdb
+      - key: GENERIC_TIMEZONE
+        value: Europe/Paris
+      - key: N8N_DEFAULT_LOCALE
+        value: fr
+      - key: N8N_ENCRYPTION_KEY
+        value: qc52Qu+9caBQPwbmxmyY15rHSi6RV86mINJ9demwKIUZk=
+      - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
+        value: true
+      - key: N8N_LOG_LEVEL
+        value: info
+      - key: PORT
+        value: 5678
+      - key: TZ
+        value: Europe/Paris
+      - key: WEBHOOK_URL
+        value: https://n8n-8rsm.onrender.com/
