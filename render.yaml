@@ -7,5 +7,3 @@ services:
     branch: main # optional (defaults to master)
     numInstances: 1
     healthCheckPath: /healthz
-        generateValue: true
-
