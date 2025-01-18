@@ -8,31 +8,42 @@ services:
     numInstances: 1
     healthCheckPath: /healthz
     envVars:
-      - key: DB_POSTGRESDB_DATABASE
-        value: postgres
-      - key: DB_POSTGRESDB_HOST
-        value: aws-0-eu-west-3.pooler.supabase.com
-      - key: DB_POSTGRESDB_PASSWORD
-        value: pzyTRPGMp5hXwo5G
-      - key: DB_POSTGRESDB_PORT
-        value: 6543
-      - key: DB_POSTGRESDB_USER
-        value: postgres.njjdpnyokzzytofzjkjy
       - key: DB_TYPE
         value: postgresdb
+      - key: DB_POSTGRESDB_HOST
+        fromDatabase:
+          name: n8nDB
+          property: host
+      - key: DB_POSTGRESDB_DATABASE
+        fromDatabase:
+          name: n8nDB
+          property: database
+      - key: DB_POSTGRESDB_PORT
+        fromDatabase:
+          name: n8nDB
+          property: port
+      - key: DB_POSTGRESDB_USER
+        fromDatabase:
+          name: n8nDB
+          property: user
+      - key: DB_POSTGRESDB_PASSWORD
+        fromDatabase:
+          name: n8nDB
+          property: password
+      - key: PORT
+        value: 5678
+      - key: N8N_LOG_LEVEL
+        value: info
       - key: GENERIC_TIMEZONE
+        value: Europe/Paris
+      - key: TZ
         value: Europe/Paris
       - key: N8N_DEFAULT_LOCALE
         value: fr
       - key: N8N_ENCRYPTION_KEY
-        value: qc52Qu+9caBQPwbmxmyY15rHSi6RV86mINJ9demwKIUZk=
-      - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
-        value: true
-      - key: N8N_LOG_LEVEL
-        value: info
-      - key: PORT
-        value: 5678
-      - key: TZ
-        value: Europe/Paris
-      - key: WEBHOOK_URL
-        value: https://n8n-8rsm.onrender.com/
+        generateValue: true
+
+databases:
+  - name: n8nDB
+    region: frankfurt # optional (defaults to oregon)
+    plan: free
