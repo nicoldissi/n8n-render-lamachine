@@ -2,10 +2,10 @@ FROM n8nio/n8n:latest
 
 USER root
 
-# Installation de ghostscript
-RUN apt-get update && \
-    apt-get install -y ghostscript imagemagick && \
-    apt-get clean && \
+# Installation de ghostscript et ImageMagick
+RUN /usr/bin/apt-get update && \
+    /usr/bin/apt-get install -y ghostscript imagemagick && \
+    /usr/bin/apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 # Installation générique pour image-shack
