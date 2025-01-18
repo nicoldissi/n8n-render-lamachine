@@ -3,10 +3,10 @@ FROM n8nio/n8n:latest
 USER root
 
 # Installation de ghostscript et ImageMagick
-RUN /usr/bin/apt-get update && \
+RUN su -c "PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin && /usr/bin/apt-get update && \
     /usr/bin/apt-get install -y ghostscript imagemagick && \
     /usr/bin/apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/*"
 
 # Installation générique pour image-shack
 # En fonction de ce que vous utilisez, vous pouvez remplacer les commandes ci-dessous:
