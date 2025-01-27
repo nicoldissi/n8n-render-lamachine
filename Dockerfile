@@ -4,9 +4,13 @@ FROM n8nio/n8n:latest
 # Passer à l'utilisateur root
 USER root
 
-# Installer Ghostscript et ImageMagick
+# Installer Ghostscript, ImageMagick et Node.js dependencies pour Stirling PDF
 RUN apk add --no-cache \
     ghostscript \
-    imagemagick
+    imagemagick \
+    build-base \
+    python3 \
+    npm
 
-# Revenir à l'utilisateur non privilég
+# Installer Stirling PDF via npm
+RUN npm install --global stirling-pdf
