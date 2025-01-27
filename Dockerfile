@@ -1,16 +1,15 @@
-# Utiliser l’image Alpine de n8n
 FROM n8nio/n8n:latest
 
-# Passer à l’utilisateur root
 USER root
 
-# Installer Ghostscript, ImageMagick et Node.js dependencies pour Stirling PDF
+# Installer rust et cargo
 RUN apk add --no-cache \
     ghostscript \
     imagemagick \
     build-base \
     python3 \
-    npm
+    rust \
+    cargo
 
-# Installer le CLI officiel de Stirling PDF via npm
-RUN npm install --global @stirlingpdf/cli
+# Compiler et installer Stirling PDF
+RUN cargo install stirling-pdf
